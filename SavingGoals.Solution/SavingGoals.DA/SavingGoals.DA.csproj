@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\SavingGoals.BC\SavingGoals.BC.csproj" />
     <ProjectReference Include="..\SavingGoals.BW\SavingGoals.BW.csproj" />
   </ItemGroup>
