@@ -5,4 +5,9 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SavingGoals.BC\SavingGoals.BC.csproj" />
+    <ProjectReference Include="..\SavingGoals.BW\SavingGoals.BW.csproj" />
+  </ItemGroup>
+
 </Project>
