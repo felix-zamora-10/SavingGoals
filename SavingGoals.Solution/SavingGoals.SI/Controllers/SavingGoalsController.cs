@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace SavingGoals.SI.Controllers {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase {
+    public class SavingGoalsController : ControllerBase {
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get() {
