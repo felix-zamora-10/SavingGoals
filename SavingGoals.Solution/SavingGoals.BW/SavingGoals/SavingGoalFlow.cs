@@ -4,24 +4,43 @@ using SavingGoals.BW.SavingGoals.Contracts;
 
 namespace SavingGoals.BW.SavingGoals {
     public class SavingGoalFlow : ISavingGoalFlow {
-        public void AddSavingGoal(SavingGoal savingGoal) {
-            throw new System.NotImplementedException();
-        }
 
-        public void DeleteSavingGoal(int idSavingGoal) {
-            throw new System.NotImplementedException();
-        }
+        private readonly ISavingGoalDataAccess savingGoalDataAccess;
 
-        public SavingGoal GetSavingGoal(int idSavingGoal) {
-            throw new System.NotImplementedException();
+        public SavingGoalFlow(ISavingGoalDataAccess savingGoalDataAccess) {
+            this.savingGoalDataAccess = savingGoalDataAccess;
         }
 
         public List<SavingGoal> GetSavingGoals() {
-            throw new System.NotImplementedException();
+            List<SavingGoal> savingGoals;
+
+            savingGoals = savingGoalDataAccess.GetSavingGoals();
+
+            return savingGoals;
+        }
+
+        public SavingGoal GetSavingGoal(int idSavingGoal) {
+            SavingGoal savingGoal;
+
+            //Validate id
+            savingGoal = savingGoalDataAccess.GetSavingGoal(idSavingGoal);
+
+            return savingGoal;
+        }
+
+        public void AddSavingGoal(SavingGoal savingGoal) {
+            //Validate object
+            savingGoalDataAccess.AddSavingGoal(savingGoal);
         }
 
         public void UpdateSavingGoal(SavingGoal savingGoal) {
-            throw new System.NotImplementedException();
+            //Validate object
+            savingGoalDataAccess.UpdateSavingGoal(savingGoal);
+        }
+
+        public void DeleteSavingGoal(int idSavingGoal) {
+            //Validate id
+            savingGoalDataAccess.DeleteSavingGoal(idSavingGoal);
         }
     }
 }

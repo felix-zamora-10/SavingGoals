@@ -3,9 +3,9 @@
 
         public int IdSavingGoal { get; set; }
 
-        public int Description { get; set; }
+        public string Description { get; set; }
 
-        public int AmountSaved { get; set; }
+        public decimal AmountSaved { get; set; }
 
     }
 }
