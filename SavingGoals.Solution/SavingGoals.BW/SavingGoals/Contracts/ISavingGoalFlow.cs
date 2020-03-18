@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 namespace SavingGoals.BW.SavingGoals.Contracts {
-    interface ISavingGoalFlow {
+    public interface ISavingGoalFlow {
 
         List<SavingGoal> GetSavingGoals();
 
