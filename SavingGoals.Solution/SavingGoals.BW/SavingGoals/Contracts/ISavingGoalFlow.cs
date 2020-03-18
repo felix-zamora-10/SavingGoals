@@ -6,13 +6,13 @@ namespace SavingGoals.BW.SavingGoals.Contracts {
 
         List<SavingGoal> GetSavingGoals();
 
-        SavingGoal GetSavingGoal(int idSavingGoal);
+        Response GetSavingGoal(int idSavingGoal);
 
-        void AddSavingGoal(SavingGoal savingGoal);
+        Response AddSavingGoal(SavingGoal savingGoal);
 
-        void UpdateSavingGoal(SavingGoal savingGoal);
+        Response UpdateSavingGoal(SavingGoal savingGoal);
 
-        void DeleteSavingGoal(int idSavingGoal);
+        Response DeleteSavingGoal(int idSavingGoal);
 
     }
 }

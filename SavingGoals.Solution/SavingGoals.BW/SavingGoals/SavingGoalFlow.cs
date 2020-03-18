@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SavingGoals.BC.SavingGoals;
 using SavingGoals.BC.SavingGoals.Models;
 using SavingGoals.BW.SavingGoals.Contracts;
 
@@ -6,9 +7,11 @@ namespace SavingGoals.BW.SavingGoals {
     public class SavingGoalFlow : ISavingGoalFlow {
 
         private readonly ISavingGoalDataAccess savingGoalDataAccess;
+        private readonly SavingGoalValidator savingGoalValidator;
 
         public SavingGoalFlow(ISavingGoalDataAccess savingGoalDataAccess) {
             this.savingGoalDataAccess = savingGoalDataAccess;
+            savingGoalValidator = new SavingGoalValidator();
         }
 
         public List<SavingGoal> GetSavingGoals() {
@@ -19,28 +22,52 @@ namespace SavingGoals.BW.SavingGoals {
             return savingGoals;
         }
 
-        public SavingGoal GetSavingGoal(int idSavingGoal) {
-            SavingGoal savingGoal;
+        public Response GetSavingGoal(int idSavingGoal) {
+            Response response = new Response {
+                ErrorFound = savingGoalValidator.ValidateSavingGoalId(idSavingGoal)
+            };
 
-            //Validate id
-            savingGoal = savingGoalDataAccess.GetSavingGoal(idSavingGoal);
+            if (!response.ErrorFound.IsThereAnyError) {
+                response.SavingGoal = savingGoalDataAccess.GetSavingGoal(idSavingGoal);
+            }
 
-            return savingGoal;
+            return response;
         }
 
-        public void AddSavingGoal(SavingGoal savingGoal) {
-            //Validate object
-            savingGoalDataAccess.AddSavingGoal(savingGoal);
+        public Response AddSavingGoal(SavingGoal savingGoal) {
+            Response response = new Response {
+                ErrorFound = savingGoalValidator.ValidateSavingGoal(savingGoal)
+            };
+
+            if (!response.ErrorFound.IsThereAnyError) {
+                savingGoalDataAccess.AddSavingGoal(savingGoal);
+            }
+
+            return response;
         }
 
-        public void UpdateSavingGoal(SavingGoal savingGoal) {
-            //Validate object
-            savingGoalDataAccess.UpdateSavingGoal(savingGoal);
+        public Response UpdateSavingGoal(SavingGoal savingGoal) {
+            Response response = new Response {
+                ErrorFound = savingGoalValidator.ValidateSavingGoal(savingGoal)
+            };
+
+            if (!response.ErrorFound.IsThereAnyError) {
+                savingGoalDataAccess.UpdateSavingGoal(savingGoal);
+            }
+
+            return response;
         }
 
-        public void DeleteSavingGoal(int idSavingGoal) {
-            //Validate id
-            savingGoalDataAccess.DeleteSavingGoal(idSavingGoal);
+        public Response DeleteSavingGoal(int idSavingGoal) {
+            Response response = new Response {
+                ErrorFound = savingGoalValidator.ValidateSavingGoalId(idSavingGoal)
+            };
+
+            if (!response.ErrorFound.IsThereAnyError) {
+                savingGoalDataAccess.DeleteSavingGoal(idSavingGoal);
+            }
+
+            return response;
         }
     }
 }

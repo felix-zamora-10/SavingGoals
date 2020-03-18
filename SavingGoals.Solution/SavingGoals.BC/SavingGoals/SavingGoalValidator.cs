@@ -27,21 +27,21 @@ namespace SavingGoals.BC.SavingGoals {
             return errors;
         }
 
-        public void ValidateSavingGoalNull(SavingGoal savingGoal, ErrorFound errors) {
+        private void ValidateSavingGoalNull(SavingGoal savingGoal, ErrorFound errors) {
             if (savingGoal == null) {
                 errors.IsThereAnyError = true;
                 errors.ErrorsFound.Add(Messages.ResourceManager.GetString("SavingGoal_NullObject"));
             }
         }
 
-        public void ValidateSavingGoalDescription(SavingGoal savingGoal, ErrorFound errors) {
+        private void ValidateSavingGoalDescription(SavingGoal savingGoal, ErrorFound errors) {
             if (savingGoal.Description == string.Empty) {
                 errors.IsThereAnyError = true;
                 errors.ErrorsFound.Add(Messages.ResourceManager.GetString("SavingGoal_DescriptionError"));
             }
         }
 
-        public void ValidateSavingGoalAmountSaved(SavingGoal savingGoal, ErrorFound errors) {
+        private void ValidateSavingGoalAmountSaved(SavingGoal savingGoal, ErrorFound errors) {
             if (savingGoal.AmountSaved < 0) {
                 errors.IsThereAnyError = true;
                 errors.ErrorsFound.Add(Messages.ResourceManager.GetString("SavingGoal_AmountSavedError"));
