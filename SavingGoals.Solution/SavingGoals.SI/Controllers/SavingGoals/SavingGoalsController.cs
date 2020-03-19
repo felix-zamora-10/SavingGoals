@@ -1,35 +1,67 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using SavingGoals.BC.SavingGoals.Models;
+using SavingGoals.BW.SavingGoals;
+using SavingGoals.BW.SavingGoals.Contracts;
 
 namespace SavingGoals.SI.Controllers {
-    [Route("api/[controller]")]
+    [Route("api/savingGoals")]
     [ApiController]
     public class SavingGoalsController : ControllerBase {
-        // GET api/values
+
+        // GET api/savingGoals
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get() {
-            return new string[] { "value1", "value2" };
+        public List<SavingGoal> GetAllSavingGoals([FromServices] ISavingGoalDataAccess savingGoalDataAccess) {
+            List<SavingGoal> savingGoals;
+
+            SavingGoalFlow savingGoalFlow = new SavingGoalFlow(savingGoalDataAccess);
+            savingGoals = savingGoalFlow.GetSavingGoals();
+
+            return savingGoals;
         }
 
-        // GET api/values/5
+        // GET api/savingGoals/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id) {
-            return "value";
+        public Response GetSavingGoal([FromServices] ISavingGoalDataAccess savingGoalDataAccess, int idSavingGoal) {
+            Response response;
+
+            SavingGoalFlow savingGoalFlow = new SavingGoalFlow(savingGoalDataAccess);
+            response = savingGoalFlow.GetSavingGoal(idSavingGoal);
+
+            return response;
         }
 
-        // POST api/values
+        // POST api/savingGoals
         [HttpPost]
-        public void Post([FromBody] string value) {
+        public Response AddSavingGoal([FromServices] ISavingGoalDataAccess savingGoalDataAccess, [FromBody] SavingGoal savingGoal) {
+            Response response;
+
+            SavingGoalFlow savingGoalFlow = new SavingGoalFlow(savingGoalDataAccess);
+            response = savingGoalFlow.AddSavingGoal(savingGoal);
+
+            return response;
         }
 
-        // PUT api/values/5
+        // PUT api/savingGoals/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value) {
+        public Response UpdateSavingGoal([FromServices] ISavingGoalDataAccess savingGoalDataAccess, [FromBody] SavingGoal savingGoal) {
+            Response response;
+
+            SavingGoalFlow savingGoalFlow = new SavingGoalFlow(savingGoalDataAccess);
+            response = savingGoalFlow.UpdateSavingGoal(savingGoal);
+
+            return response;
         }
 
-        // DELETE api/values/5
+        // DELETE api/savingGoals/5
         [HttpDelete("{id}")]
-        public void Delete(int id) {
+        public Response DeleteSavingGoal([FromServices] ISavingGoalDataAccess savingGoalDataAccess, [FromQuery] int idSavingGoal) {
+            Response response;
+
+            SavingGoalFlow savingGoalFlow = new SavingGoalFlow(savingGoalDataAccess);
+            response = savingGoalFlow.DeleteSavingGoal(idSavingGoal);
+
+            return response;
         }
     }
 }
