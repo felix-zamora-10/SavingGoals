@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SavingGoals.DA.SavingGoals;
 
 namespace SavingGoals.SI {
     public class Startup {
@@ -39,6 +41,7 @@ namespace SavingGoals.SI {
 
         private void ConfigureDatabase(IServiceCollection services) {
             var connectionString = Configuration.GetConnectionString("SavingGoalsDB");
+            services.AddDbContext<SavingGoalContext>(opciones => opciones.UseSqlServer(connectionString));
         }
 
         private static void ConfigureCrossPlatform(IServiceCollection services) {
