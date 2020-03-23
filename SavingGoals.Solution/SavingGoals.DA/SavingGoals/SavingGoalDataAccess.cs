@@ -53,11 +53,28 @@ namespace SavingGoals.DA.SavingGoals {
         }
 
         public void UpdateSavingGoal(SavingGoal savingGoal) {
-            throw new System.NotImplementedException();
+            SavingGoalTable savingGoalTable;
+
+            savingGoalTable = savingGoalContext.SavingGoal.FirstOrDefault(item => item.IdSavingGoal == savingGoal.IdSavingGoal);
+
+            if (savingGoalTable != null) {
+                savingGoalTable.Description = savingGoal.Description;
+                savingGoalTable.AmountSaved = savingGoal.AmountSaved;
+
+                savingGoalContext.SavingGoal.Update(savingGoalTable);
+                savingGoalContext.SaveChanges();
+            }
         }
 
         public void DeleteSavingGoal(int idSavingGoal) {
-            throw new System.NotImplementedException();
+            SavingGoalTable savingGoalTable;
+
+            savingGoalTable = savingGoalContext.SavingGoal.FirstOrDefault(item => item.IdSavingGoal == idSavingGoal);
+
+            if (savingGoalTable != null) {
+                savingGoalContext.SavingGoal.Remove(savingGoalTable);
+                savingGoalContext.SaveChanges();
+            }
         }
     }
 }
