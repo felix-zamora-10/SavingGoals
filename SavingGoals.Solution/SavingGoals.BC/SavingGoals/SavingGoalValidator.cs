@@ -1,5 +1,6 @@
 ﻿using SavingGoals.BC.SavingGoals.Models;
 using SavingGoals.BC.Utilities;
+using SavingGoals.BC.Utilities.Models;
 
 namespace SavingGoals.BC.SavingGoals {
     public class SavingGoalValidator {

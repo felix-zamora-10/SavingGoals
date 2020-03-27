@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SavingGoals.BC.SavingGoals.Models {
+namespace SavingGoals.BC.Utilities.Models {
     public class ErrorFound {
 
         public ErrorFound() {
