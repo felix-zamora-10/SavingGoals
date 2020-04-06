@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SavingGoals.DA.Tables {
@@ -10,6 +11,8 @@ namespace SavingGoals.DA.Tables {
 
         public string Description { get; set; }
 
-        public decimal AmountSaved { get; set; }
+        public decimal InitialAmount { get; set; }
+
+        public List<MonthlyMovementTable> MonthlyMovements { get; set; }
     }
 }

@@ -42,7 +42,7 @@ namespace SavingGoals.DA.SavingGoals {
             try {
                 SavingGoalTable savingGoalTable = new SavingGoalTable {
                     Description = savingGoal.Description,
-                    AmountSaved = savingGoal.AmountSaved
+                    InitialAmount = savingGoal.InitialAmount
                 };
 
                 savingGoalContext.SavingGoal.Add(savingGoalTable);
@@ -53,27 +53,35 @@ namespace SavingGoals.DA.SavingGoals {
         }
 
         public void UpdateSavingGoal(SavingGoal savingGoal) {
-            SavingGoalTable savingGoalTable;
+            try {
+                SavingGoalTable savingGoalTable;
 
-            savingGoalTable = savingGoalContext.SavingGoal.FirstOrDefault(item => item.IdSavingGoal == savingGoal.IdSavingGoal);
+                savingGoalTable = savingGoalContext.SavingGoal.FirstOrDefault(item => item.IdSavingGoal == savingGoal.IdSavingGoal);
 
-            if (savingGoalTable != null) {
-                savingGoalTable.Description = savingGoal.Description;
-                savingGoalTable.AmountSaved = savingGoal.AmountSaved;
+                if (savingGoalTable != null) {
+                    savingGoalTable.Description = savingGoal.Description;
+                    savingGoalTable.InitialAmount = savingGoal.InitialAmount;
 
-                savingGoalContext.SavingGoal.Update(savingGoalTable);
-                savingGoalContext.SaveChanges();
+                    savingGoalContext.SavingGoal.Update(savingGoalTable);
+                    savingGoalContext.SaveChanges();
+                }
+            } catch (Exception exception) {
+                throw new SavingGoalException(exception.Message);
             }
         }
 
         public void DeleteSavingGoal(int idSavingGoal) {
-            SavingGoalTable savingGoalTable;
+            try {
+                SavingGoalTable savingGoalTable;
 
-            savingGoalTable = savingGoalContext.SavingGoal.FirstOrDefault(item => item.IdSavingGoal == idSavingGoal);
+                savingGoalTable = savingGoalContext.SavingGoal.FirstOrDefault(item => item.IdSavingGoal == idSavingGoal);
 
-            if (savingGoalTable != null) {
-                savingGoalContext.SavingGoal.Remove(savingGoalTable);
-                savingGoalContext.SaveChanges();
+                if (savingGoalTable != null) {
+                    savingGoalContext.SavingGoal.Remove(savingGoalTable);
+                    savingGoalContext.SaveChanges();
+                }
+            } catch (Exception exception) {
+                throw new SavingGoalException(exception.Message);
             }
         }
     }

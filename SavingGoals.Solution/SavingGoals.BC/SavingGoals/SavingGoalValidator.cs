@@ -43,7 +43,7 @@ namespace SavingGoals.BC.SavingGoals {
         }
 
         private void ValidateSavingGoalAmountSaved(SavingGoal savingGoal, ErrorFound errors) {
-            if (savingGoal.AmountSaved < 0) {
+            if (savingGoal.InitialAmount < 0) {
                 errors.IsThereAnyError = true;
                 errors.ErrorsFound.Add(Messages.ResourceManager.GetString("SavingGoal_AmountSavedError"));
             }
