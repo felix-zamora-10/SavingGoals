@@ -40,7 +40,7 @@ namespace SavingGoals.SI {
         }
 
         private void ConfigureDatabase(IServiceCollection services) {
-            var connectionString = Configuration.GetConnectionString("SavingGoalsDB");
+            var connectionString = Configuration.GetConnectionString("SavingGoalsDBDev");
             services.AddDbContext<SavingGoalContext>(opciones => opciones.UseSqlServer(connectionString));
         }
 

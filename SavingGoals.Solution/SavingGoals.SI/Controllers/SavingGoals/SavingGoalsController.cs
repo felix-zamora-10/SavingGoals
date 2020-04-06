@@ -22,7 +22,7 @@ namespace SavingGoals.SI.Controllers {
 
         // GET api/savingGoals/5
         [HttpGet("{id}")]
-        public Response GetSavingGoal([FromServices] ISavingGoalDataAccess savingGoalDataAccess, int idSavingGoal) {
+        public Response GetSavingGoal([FromServices] ISavingGoalDataAccess savingGoalDataAccess, [FromQuery] int idSavingGoal) {
             Response response;
 
             SavingGoalFlow savingGoalFlow = new SavingGoalFlow(savingGoalDataAccess);
@@ -33,7 +33,7 @@ namespace SavingGoals.SI.Controllers {
 
         // POST api/savingGoals
         [HttpPost]
-        public Response AddSavingGoal([FromServices] ISavingGoalDataAccess savingGoalDataAccess, [FromBody] SavingGoal savingGoal) {
+        public Response AddSavingGoal([FromServices] ISavingGoalDataAccess savingGoalDataAccess, [FromQuery] SavingGoal savingGoal) {
             Response response;
 
             SavingGoalFlow savingGoalFlow = new SavingGoalFlow(savingGoalDataAccess);
@@ -44,7 +44,7 @@ namespace SavingGoals.SI.Controllers {
 
         // PUT api/savingGoals/5
         [HttpPut("{id}")]
-        public Response UpdateSavingGoal([FromServices] ISavingGoalDataAccess savingGoalDataAccess, [FromBody] SavingGoal savingGoal) {
+        public Response UpdateSavingGoal([FromServices] ISavingGoalDataAccess savingGoalDataAccess, [FromQuery] SavingGoal savingGoal) {
             Response response;
 
             SavingGoalFlow savingGoalFlow = new SavingGoalFlow(savingGoalDataAccess);

@@ -20,6 +20,17 @@ namespace SavingGoals.DA.SavingGoals {
             return savingGoalsConverted;
         }
 
+        public SavingGoal ConvertSavingGoal(SavingGoalTable savingGoalToConvert) {
+            SavingGoal savingGoalConverted = new SavingGoal {
+                IdSavingGoal = savingGoalToConvert.IdSavingGoal,
+                Description = savingGoalToConvert.Description,
+                InitialAmount = savingGoalToConvert.InitialAmount,
+                MonthlyMovements = ConvertMonthlyMovements(savingGoalToConvert.MonthlyMovements)
+            };
+
+            return savingGoalConverted;
+        }
+
         public List<MonthlyMovement> ConvertMonthlyMovements(List<MonthlyMovementTable> monthlyMovementsToConvert) {
             List<MonthlyMovement> monthlyMovementsConverted = new List<MonthlyMovement>();
 
@@ -36,14 +47,20 @@ namespace SavingGoals.DA.SavingGoals {
             return monthlyMovementsConverted;
         }
 
-        public SavingGoal ConvertSavingGoal(SavingGoalTable savingGoalToConvert) {
-            SavingGoal savingGoalConverted = new SavingGoal {
-                IdSavingGoal = savingGoalToConvert.IdSavingGoal,
-                Description = savingGoalToConvert.Description,
-                InitialAmount = savingGoalToConvert.InitialAmount
-            };
+        public List<MonthlyMovementTable> ConvertMonthlyMovementsTable(List<MonthlyMovement> monthlyMovementsToConvert) {
+            List<MonthlyMovementTable> monthlyMovementsConverted = new List<MonthlyMovementTable>();
 
-            return savingGoalConverted;
+            foreach (MonthlyMovement monthlyMovementToConvert in monthlyMovementsToConvert) {
+                monthlyMovementsConverted.Add(new MonthlyMovementTable {
+                    IdMonthlyMovement = monthlyMovementToConvert.IdMonthlyMovement,
+                    IdSavingGoal = monthlyMovementToConvert.IdSavingGoal,
+                    Year = monthlyMovementToConvert.Year,
+                    Month = monthlyMovementToConvert.Month,
+                    SavedAmount = monthlyMovementToConvert.SavedAmount
+                });
+            }
+
+            return monthlyMovementsConverted;
         }
     }
 }

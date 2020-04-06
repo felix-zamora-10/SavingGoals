@@ -32,7 +32,7 @@ namespace SavingGoals.DA.SavingGoals {
             SavingGoal savingGoalConverted;
 
             savingGoalEntity = savingGoalContext.SavingGoal.Where(
-                savingGoal => savingGoal.IdSavingGoal == idSavingGoal).FirstOrDefault<SavingGoalTable>();
+                savingGoal => savingGoal.IdSavingGoal == idSavingGoal).FirstOrDefault();
             savingGoalConverted = savingGoalConverter.ConvertSavingGoal(savingGoalEntity);
             
             return savingGoalConverted;
@@ -42,7 +42,8 @@ namespace SavingGoals.DA.SavingGoals {
             try {
                 SavingGoalTable savingGoalTable = new SavingGoalTable {
                     Description = savingGoal.Description,
-                    InitialAmount = savingGoal.InitialAmount
+                    InitialAmount = savingGoal.InitialAmount,
+                    MonthlyMovements = savingGoalConverter.ConvertMonthlyMovementsTable(savingGoal.MonthlyMovements)
                 };
 
                 savingGoalContext.SavingGoal.Add(savingGoalTable);
