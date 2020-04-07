@@ -7,10 +7,10 @@ namespace SavingGoals.BC.SavingGoals {
 
         private const int ID_ALLOWED = 1;
 
-        public ErrorFound ValidateSavingGoalId(int id) {
+        public ErrorFound ValidateSavingGoalId(int idSavingGoal) {
             ErrorFound errors = new ErrorFound();
 
-            if (id < ID_ALLOWED) {
+            if (idSavingGoal < ID_ALLOWED) {
                 errors.IsThereAnyError = true;
                 errors.ErrorsFound.Add(Messages.ResourceManager.GetString("SavingGoal_IdError"));
             }
@@ -29,7 +29,7 @@ namespace SavingGoals.BC.SavingGoals {
         }
 
         private void ValidateSavingGoalNull(SavingGoal savingGoal, ErrorFound errors) {
-            if (savingGoal == null) {
+            if (savingGoal is null) {
                 errors.IsThereAnyError = true;
                 errors.ErrorsFound.Add(Messages.ResourceManager.GetString("SavingGoal_NullObject"));
             }

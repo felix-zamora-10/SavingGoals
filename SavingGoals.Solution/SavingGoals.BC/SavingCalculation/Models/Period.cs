@@ -1,10 +1,10 @@
 ﻿namespace SavingGoals.BC.SavingCalculation.Models {
     public class Period {
 
-        public short Year { get; set; }
+        public int Year { get; set; }
 
-        public byte Month { get; set; }
+        public int Month { get; set; }
 
-        public decimal EstimatedAmount { get; set; }
+        public decimal SavedAmount { get; set; }
     }
 }

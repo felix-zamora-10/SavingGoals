@@ -6,8 +6,6 @@ namespace SavingGoals.BC.SavingCalculation.Models {
 
         public ErrorFound ErrorFound { get; set; }
 
-        public List<TransactionMade> TransactionsMade { get; set; }
-
-        public List<Period> RemainingPeriods { get; set; }
+        public List<Period> Periods { get; set; }
     }
 }

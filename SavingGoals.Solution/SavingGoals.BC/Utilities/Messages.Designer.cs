@@ -61,6 +61,60 @@ namespace SavingGoals.BC.Utilities {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Debe ingresar un monto objetivo válido, debe ser mayor o igual a 1..
+        /// </summary>
+        internal static string SavingCalculation_EstimatedAmountError {
+            get {
+                return ResourceManager.GetString("SavingCalculation_EstimatedAmountError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to El id no es válido, ingrese un id mayor o igual a 1..
+        /// </summary>
+        internal static string SavingCalculation_IdError {
+            get {
+                return ResourceManager.GetString("SavingCalculation_IdError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Los movimientos mensuales no pueden ser nulos..
+        /// </summary>
+        internal static string SavingCalculation_MonthlyMovementsNull {
+            get {
+                return ResourceManager.GetString("SavingCalculation_MonthlyMovementsNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to El ahorro no puede ser nulo..
+        /// </summary>
+        internal static string SavingCalculation_SavingGoalNull {
+            get {
+                return ResourceManager.GetString("SavingCalculation_SavingGoalNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debe ingresar un monto de ahorro mensual válido, debe ser mayor o igual a 1..
+        /// </summary>
+        internal static string SavingCalculation_SavingPerMonthError {
+            get {
+                return ResourceManager.GetString("SavingCalculation_SavingPerMonthError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to El monto de ahorro deseado es menor o igual al monto ahorrado..
+        /// </summary>
+        internal static string SavingCalculation_TargetAmountError {
+            get {
+                return ResourceManager.GetString("SavingCalculation_TargetAmountError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to El monto del ahorro no es válido, debe ser mayor o igual a 1.00..
         /// </summary>
         internal static string SavingGoal_AmountSavedError {
