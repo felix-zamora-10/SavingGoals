@@ -10,7 +10,7 @@ namespace SavingGoals.BC.SavingCalculation {
         private const int LAST_MONTH = 12;
 
         public decimal GetTotalAmount(SavingGoal savingGoal) {
-            decimal totalAmount = savingGoal.InitialAmount;
+            decimal totalAmount = decimal.Zero;
 
             foreach (MonthlyMovement monthlyMovement in savingGoal.MonthlyMovements) {
                 totalAmount += monthlyMovement.SavedAmount;

@@ -7,8 +7,6 @@ namespace SavingGoals.BC.SavingGoals.Models {
 
         public string Description { get; set; }
 
-        public decimal InitialAmount { get; set; }
-
         public List<MonthlyMovement> MonthlyMovements { get; set; }
     }
 }

@@ -11,8 +11,6 @@ namespace SavingGoals.DA.Tables {
 
         public string Description { get; set; }
 
-        public decimal InitialAmount { get; set; }
-
         public List<MonthlyMovementTable> MonthlyMovements { get; set; }
     }
 }

@@ -115,7 +115,7 @@ namespace SavingGoals.BC.Utilities {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to El monto del ahorro no es válido, debe ser mayor o igual a 1.00..
+        ///   Looks up a localized string similar to El monto del ahorro no es válido, debe ser mayor o igual a 1..
         /// </summary>
         internal static string SavingGoal_AmountSavedError {
             get {
@@ -138,6 +138,24 @@ namespace SavingGoals.BC.Utilities {
         internal static string SavingGoal_IdError {
             get {
                 return ResourceManager.GetString("SavingGoal_IdError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No se puede agregar dos ahorros iniciales..
+        /// </summary>
+        internal static string SavingGoal_MonthlyMovements {
+            get {
+                return ResourceManager.GetString("SavingGoal_MonthlyMovements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No hay ahorros por guardar..
+        /// </summary>
+        internal static string SavingGoal_MonthlyMovementsNull {
+            get {
+                return ResourceManager.GetString("SavingGoal_MonthlyMovementsNull", resourceCulture);
             }
         }
         

@@ -136,13 +136,19 @@
     <value>El monto de ahorro deseado es menor o igual al monto ahorrado.</value>
   </data>
   <data name="SavingGoal_AmountSavedError" xml:space="preserve">
-    <value>El monto del ahorro no es válido, debe ser mayor o igual a 1.00.</value>
+    <value>El monto del ahorro no es válido, debe ser mayor o igual a 1.</value>
   </data>
   <data name="SavingGoal_DescriptionError" xml:space="preserve">
     <value>La descripción no puede estar vacía.</value>
   </data>
   <data name="SavingGoal_IdError" xml:space="preserve">
     <value>El id no es válido, ingrese un id mayor o igual a 1.</value>
+  </data>
+  <data name="SavingGoal_MonthlyMovements" xml:space="preserve">
+    <value>No se puede agregar dos ahorros iniciales.</value>
+  </data>
+  <data name="SavingGoal_MonthlyMovementsNull" xml:space="preserve">
+    <value>No hay ahorros por guardar.</value>
   </data>
   <data name="SavingGoal_NullObject" xml:space="preserve">
     <value>El objeto no puede estar vacío, debe enviar un objeto válido.</value>

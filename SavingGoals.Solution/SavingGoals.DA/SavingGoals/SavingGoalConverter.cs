@@ -12,7 +12,6 @@ namespace SavingGoals.DA.SavingGoals {
                 savingGoalsConverted.Add(new SavingGoal {
                     IdSavingGoal = savingGoalToConvert.IdSavingGoal,
                     Description = savingGoalToConvert.Description,
-                    InitialAmount = savingGoalToConvert.InitialAmount,
                     MonthlyMovements = ConvertMonthlyMovements(savingGoalToConvert.MonthlyMovements)
                 });
             }
@@ -24,7 +23,6 @@ namespace SavingGoals.DA.SavingGoals {
             SavingGoal savingGoalConverted = new SavingGoal {
                 IdSavingGoal = savingGoalToConvert.IdSavingGoal,
                 Description = savingGoalToConvert.Description,
-                InitialAmount = savingGoalToConvert.InitialAmount,
                 MonthlyMovements = ConvertMonthlyMovements(savingGoalToConvert.MonthlyMovements)
             };
 

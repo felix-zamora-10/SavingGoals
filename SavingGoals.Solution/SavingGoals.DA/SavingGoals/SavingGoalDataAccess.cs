@@ -42,7 +42,6 @@ namespace SavingGoals.DA.SavingGoals {
             try {
                 SavingGoalTable savingGoalTable = new SavingGoalTable {
                     Description = savingGoal.Description,
-                    InitialAmount = savingGoal.InitialAmount,
                     MonthlyMovements = savingGoalConverter.ConvertMonthlyMovementsTable(savingGoal.MonthlyMovements)
                 };
 
@@ -61,7 +60,7 @@ namespace SavingGoals.DA.SavingGoals {
 
                 if (savingGoalTable != null) {
                     savingGoalTable.Description = savingGoal.Description;
-                    savingGoalTable.InitialAmount = savingGoal.InitialAmount;
+                    savingGoalTable.MonthlyMovements = savingGoalConverter.ConvertMonthlyMovementsTable(savingGoal.MonthlyMovements);
 
                     savingGoalContext.SavingGoal.Update(savingGoalTable);
                     savingGoalContext.SaveChanges();
